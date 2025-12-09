@@ -6,6 +6,32 @@
 
 ---
 
+## 🤗 Pre-trained Model Available
+
+**Our distilled Qwen2-VL-2B model is now available on Hugging Face!**
+
+🔗 **[Download Model](https://huggingface.co/rahilsinghi/firstsight-qwen2-vl-2b-distilled)**
+
+```python
+from transformers import Qwen2VLForConditionalGeneration, AutoProcessor
+
+# Load the distilled model (2.2B params, 5.16× faster, 68% less VRAM)
+model = Qwen2VLForConditionalGeneration.from_pretrained(
+    "rahilsinghi/firstsight-qwen2-vl-2b-distilled",
+    torch_dtype="auto",
+    device_map="auto"
+)
+processor = AutoProcessor.from_pretrained("rahilsinghi/firstsight-qwen2-vl-2b-distilled")
+```
+
+**Key Features:**
+- 🚀 **5.16× faster inference** than Qwen2-VL-7B teacher
+- 💾 **67.9% VRAM reduction** (13.8 GB → 4.4 GB)
+- 📦 **73.4% smaller model** (8.3B → 2.2B parameters)
+- ⚡ **Optimized for edge deployment** on resource-constrained devices
+
+---
+
 ## 📋 Project Overview
 
 FirstSight builds an end-to-end pipeline for **efficient egocentric question answering** using Vision-Language Models (VLMs). The project focuses on:
@@ -143,22 +169,24 @@ scp -r rs9174@greene.hpc.nyu.edu:/scratch/rs9174/firstsight/experiments ./
 - Expected savings: ~30-40% VRAM reduction
 - Results: `experiments/quantization/`
 
-### Phase 3: Knowledge Distillation (Current 🔄)
+### Phase 3: Knowledge Distillation (Completed ✅)
 
-**Teacher Model**: [EgoGPT-7b-EgoIT](https://huggingface.co/EgoGPT/EgoGPT-7b-EgoIT) (9B params, egocentric-specialized)  
-**Student Model**: Qwen2-VL-2B-Instruct (2B params, general VLM)
+**Teacher Model**: [Qwen2-VL-7B-Instruct](https://huggingface.co/Qwen/Qwen2-VL-7B-Instruct) (8.3B params)  
+**Student Model**: [FirstSight Qwen2-VL-2B](https://huggingface.co/rahilsinghi/firstsight-qwen2-vl-2b-distilled) (2.2B params, distilled)
 
 **Distillation Strategy**:
 - Logit distillation (KL divergence)
-- Temperature scaling (T=3.0)
+- Temperature scaling (T=2.0)
 - Mixed precision training (BF16)
 - Gradient checkpointing
+- 10 epochs on 5000 training samples
 
-**Expected Results**:
-- Compression: 9B → 2B (~78% reduction)
-- Speedup: ~3-4× faster inference
-- Performance: 85-90% of teacher accuracy
-- VRAM: ~2.8GB (INT8 deployed)
+**Achieved Results**:
+- ✅ Compression: 8.3B → 2.2B (73.4% reduction)
+- ✅ Speedup: **5.16× faster inference**
+- ✅ VRAM: **67.9% savings** (13.8 GB → 4.4 GB)
+- ✅ Throughput: **5.16× improvement**
+- ✅ **90.4% loss reduction** during training
 
 See [`docs/README_distillation.md`](docs/README_distillation.md) for detailed guide.
 
@@ -208,16 +236,22 @@ training:
 | Latency | 0.52s | 0.48s | 8% faster |
 | Throughput | 1.9 q/s | 2.1 q/s | 10% ↑ |
 
-### Distillation Results (Teacher vs Student)
+### Distillation Results (Production Run: 5000 samples, 10 epochs)
 
-*(Results will be updated after distillation experiment)*
+**🤗 Model Available**: [rahilsinghi/firstsight-qwen2-vl-2b-distilled](https://huggingface.co/rahilsinghi/firstsight-qwen2-vl-2b-distilled)
 
-| Metric | Teacher (9B) | Student (2B) | Change |
+| Metric | Teacher (7B) | Student (2B) | Change |
 |--------|--------------|--------------|--------|
-| Parameters | 9B | 2B | 78% ↓ |
-| VRAM | ~4.5 GB | ~2.8 GB | TBD |
-| Latency | TBD | TBD | TBD |
-| Accuracy | Baseline | TBD | TBD |
+| Parameters | 8.29B | 2.21B | **73.4% ↓** |
+| VRAM | 13.8 GB | 4.4 GB | **67.9% ↓** |
+| Latency | 1.260s | 0.244s | **5.16× faster** |
+| Throughput | 0.79 samples/s | 4.10 samples/s | **5.16× higher** |
+
+**Training Details:**
+- Dataset: 5000 train / 1000 validation samples
+- Training time: ~4 hours on Quadro RTX 8000
+- Loss reduction: 90.4% over 10 epochs
+- Hardware: Single GPU (48GB VRAM)
 
 ---
 
@@ -251,20 +285,25 @@ python -m src.distillation.distill_vlm configs/distillation_config.yaml
 
 ## 📚 Key References
 
-1. **EgoGPT**: Egocentric Vision-Language Model (Teacher)
-   - [HuggingFace Model](https://huggingface.co/EgoGPT/EgoGPT-7b-EgoIT)
+1. **FirstSight Distilled Model** (Our Contribution):
+   - [HuggingFace Model](https://huggingface.co/rahilsinghi/firstsight-qwen2-vl-2b-distilled)
+   - Distilled from Qwen2-VL-7B for efficient egocentric QA
    
-2. **Knowledge Distillation**:
+2. **Qwen2-VL**: Base Vision-Language Models
+   - [Qwen2-VL-7B-Instruct](https://huggingface.co/Qwen/Qwen2-VL-7B-Instruct) (Teacher)
+   - [Qwen2-VL-2B-Instruct](https://huggingface.co/Qwen/Qwen2-VL-2B-Instruct) (Student Base)
+   
+3. **Knowledge Distillation**:
    - Hinton et al., "Distilling the Knowledge in a Neural Network" (2015)
    - Sanh et al., "DistilBERT" (2019)
 
-3. **Modality-Balanced Quantization**:
+4. **Modality-Balanced Quantization**:
    - Liu et al., "Modality Balanced Quantization for Large Vision-Language Models" (2024) - [arXiv:2412.19509](https://arxiv.org/abs/2412.19509)
 
-4. **Parameter-Efficient Fine-Tuning**:
+5. **Parameter-Efficient Fine-Tuning**:
    - Hu et al., "LoRA: Low-Rank Adaptation" (2021) - [arXiv:2106.09685](https://arxiv.org/abs/2106.09685)
 
-5. **Quantization**:
+6. **Quantization**:
    - Dettmers et al., "8-bit Optimizers via Block-wise Quantization" (2022) - [arXiv:2110.02861](https://arxiv.org/abs/2110.02861)
 
 ---

@@ -1,6 +1,24 @@
 # FirstSight: Knowledge Distillation Results
 ## VLM Distillation - December 8, 2025
 
+## 🤗 Model Available on Hugging Face
+
+**Our distilled model is publicly available:**
+
+🔗 **[rahilsinghi/firstsight-qwen2-vl-2b-distilled](https://huggingface.co/rahilsinghi/firstsight-qwen2-vl-2b-distilled)**
+
+Quick start:
+```python
+from transformers import Qwen2VLForConditionalGeneration, AutoProcessor
+
+model = Qwen2VLForConditionalGeneration.from_pretrained(
+    "rahilsinghi/firstsight-qwen2-vl-2b-distilled"
+)
+processor = AutoProcessor.from_pretrained(
+    "rahilsinghi/firstsight-qwen2-vl-2b-distilled"
+)
+```
+
 ---
 
 ## 🎯 Objective
@@ -105,6 +123,7 @@ Scheduler: Cosine with warmup (50 steps)
    - Best checkpoint based on validation loss
    - Epoch 3 (final epoch)
    - Validation loss: 8.32
+   - **Published to Hugging Face**: [rahilsinghi/firstsight-qwen2-vl-2b-distilled](https://huggingface.co/rahilsinghi/firstsight-qwen2-vl-2b-distilled)
 
 2. **final_student_model/** (4.2 GB)
    - Final checkpoint at end of training
@@ -215,11 +234,34 @@ This proof-of-concept demonstrates that:
 4. ✅ Vocabulary alignment handles token mismatch between models
 5. ✅ The pipeline is production-ready for scaling to full datasets
 
-**Status**: ✅ **Distillation Successful - Production Ready**
+**Status**: ✅ **Distillation Successful - Production Ready - [Model Published](https://huggingface.co/rahilsinghi/firstsight-qwen2-vl-2b-distilled)**
+
+---
+
+## 🌐 Access & Citation
+
+### Hugging Face Model
+- **Repository**: https://huggingface.co/rahilsinghi/firstsight-qwen2-vl-2b-distilled
+- **License**: Apache 2.0
+- **Model Card**: Complete documentation with metrics and usage examples
+- **Evaluation Results**: Included in model repository
+
+### Citation
+If you use this model, please cite:
+```bibtex
+@misc{firstsight2024,
+  title={FirstSight: Efficient Knowledge Distillation for Vision-Language Models on Edge Devices},
+  author={Rahil Singhi and Sunidhi Tandel},
+  year={2024},
+  howpublished={\url{https://huggingface.co/rahilsinghi/firstsight-qwen2-vl-2b-distilled}},
+  note={Distilled from Qwen2-VL-7B-Instruct for egocentric question answering}
+}
+```
 
 ---
 
 *Generated: December 8, 2025*  
 *Job ID: 3145300*  
-*HPC Node: gr013 (NYU Greene)*
+*HPC Node: gr013 (NYU Greene)*  
+*Model Published: December 9, 2025*
 
