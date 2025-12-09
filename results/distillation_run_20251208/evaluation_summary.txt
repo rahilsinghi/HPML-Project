@@ -1,0 +1,12 @@
+FirstSight: Distillation Evaluation Summary
+======================================================================
+
+Date: 2025-12-08 19:39:47
+
+Teacher: EgoGPT-7b (8.29B params)
+Student: Qwen2-VL-2B (2.21B params)
+
+Compression: 3.75× (73.4% reduction)
+VRAM Savings: 9.39 GB (67.9%)
+Speedup: 5.79×
+Throughput Improvement: 5.79×

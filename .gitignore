@@ -1,0 +1,59 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+*.egg-info/
+dist/
+build/
+
+# Large model files
+*.safetensors
+*.pth
+*.bin
+*.ckpt
+*.pt
+
+# Large data files
+data/*.json
+*.jsonl
+
+# Results (models are too large)
+results/*/best_student_model/
+results/*/final_student_model/
+results/*/*.safetensors
+
+# Keep only summaries and configs
+!results/*/RESULTS_SUMMARY.md
+!results/*/*.json
+!results/*/*.txt
+!results/*/*.yaml
+
+# Midterm documentation (as requested)
+docs/midterm/
+
+# HPC temporary files
+*.out
+*.err
+slurm-*.out
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Temporary files
+*.log
+*.tmp
+tmp/
+temp/
+

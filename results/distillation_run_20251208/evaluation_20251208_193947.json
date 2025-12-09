@@ -1,0 +1,764 @@
+{
+  "teacher": {
+    "model_name": "EgoGPT-7b (Teacher)",
+    "timestamp": "2025-12-08T19:38:26.769426",
+    "samples": [
+      {
+        "question": "What object did I just pick up?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: What object did I just pick up?\nAnswer concisely:\nassistant\nI don't know what object you just picked up.",
+        "latency_s": 4.054966449737549,
+        "peak_vram_gb": 13.8914816,
+        "num_tokens": 46
+      },
+      {
+        "question": "What am I holding in my right hand?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: What am I holding in my right hand?\nAnswer concisely:\nassistant\npen",
+        "latency_s": 0.2811272144317627,
+        "peak_vram_gb": 13.894900736,
+        "num_tokens": 37
+      },
+      {
+        "question": "What tool am I currently using?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: What tool am I currently using?\nAnswer concisely:\nassistant\nI am currently using a text-based AI language model.",
+        "latency_s": 1.4580605030059814,
+        "peak_vram_gb": 13.894900736,
+        "num_tokens": 45
+      },
+      {
+        "question": "What item did I place on the table?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: What item did I place on the table?\nAnswer concisely:\nassistant\nI'm sorry, but I cannot answer your question as you have not provided any information about what item you placed on the table. Please provide more details so I can assist you better.",
+        "latency_s": 4.51704740524292,
+        "peak_vram_gb": 13.894900736,
+        "num_tokens": 73
+      },
+      {
+        "question": "What object is closest to my hand?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: What object is closest to my hand?\nAnswer concisely:\nassistant\npen",
+        "latency_s": 0.27457714080810547,
+        "peak_vram_gb": 13.894900736,
+        "num_tokens": 36
+      },
+      {
+        "question": "Where did I put the cup?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: Where did I put the cup?\nAnswer concisely:\nassistant\non table",
+        "latency_s": 0.3915536403656006,
+        "peak_vram_gb": 13.894900736,
+        "num_tokens": 36
+      },
+      {
+        "question": "Where am I looking at?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: Where am I looking at?\nAnswer concisely:\nassistant\nI am not sure where you are looking at.",
+        "latency_s": 1.3406856060028076,
+        "peak_vram_gb": 13.894900736,
+        "num_tokens": 43
+      },
+      {
+        "question": "What direction am I facing?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: What direction am I facing?\nAnswer concisely:\nassistant\nI don't know what direction you are facing.",
+        "latency_s": 1.3571734428405762,
+        "peak_vram_gb": 13.894900736,
+        "num_tokens": 43
+      },
+      {
+        "question": "Where is the nearest door?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: Where is the nearest door?\nAnswer concisely:\nassistant\nI don't know.",
+        "latency_s": 0.7494874000549316,
+        "peak_vram_gb": 13.894900736,
+        "num_tokens": 38
+      },
+      {
+        "question": "What room am I in?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: What room am I in?\nAnswer concisely:\nassistant\nliving room",
+        "latency_s": 0.3956718444824219,
+        "peak_vram_gb": 13.894900736,
+        "num_tokens": 35
+      },
+      {
+        "question": "What action am I performing?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: What action am I performing?\nAnswer concisely:\nassistant\nI am not performing any action.",
+        "latency_s": 0.9916603565216064,
+        "peak_vram_gb": 13.894900736,
+        "num_tokens": 40
+      },
+      {
+        "question": "What task am I currently doing?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: What task am I currently doing?\nAnswer concisely:\nassistant\nYou are currently asking a question.",
+        "latency_s": 1.001368761062622,
+        "peak_vram_gb": 13.894900736,
+        "num_tokens": 41
+      },
+      {
+        "question": "What did I just finish doing?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: What did I just finish doing?\nAnswer concisely:\nassistant\nYou just finished asking a question.",
+        "latency_s": 0.992732048034668,
+        "peak_vram_gb": 13.894900736,
+        "num_tokens": 41
+      },
+      {
+        "question": "What am I about to do?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: What am I about to do?\nAnswer concisely:\nassistant\nI'm sorry, but I cannot answer your question as you have not provided any context or information about what you are about to do. Please provide more details so I can assist you better.",
+        "latency_s": 4.667921781539917,
+        "peak_vram_gb": 13.894900736,
+        "num_tokens": 72
+      },
+      {
+        "question": "How many steps have I taken?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: How many steps have I taken?\nAnswer concisely:\nassistant\nI don't know.",
+        "latency_s": 0.7576770782470703,
+        "peak_vram_gb": 13.894900736,
+        "num_tokens": 39
+      },
+      {
+        "question": "What was I looking at 5 seconds ago?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: What was I looking at 5 seconds ago?\nAnswer concisely:\nassistant\nI don't know what you were looking at 5 seconds ago.",
+        "latency_s": 1.8175084590911865,
+        "peak_vram_gb": 13.894900736,
+        "num_tokens": 51
+      },
+      {
+        "question": "What caught my attention?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: What caught my attention?\nAnswer concisely:\nassistant\nI'm sorry, but I cannot answer this question without more information. What specifically caught your attention?",
+        "latency_s": 2.5320205688476562,
+        "peak_vram_gb": 13.894900736,
+        "num_tokens": 52
+      },
+      {
+        "question": "What am I focused on?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: What am I focused on?\nAnswer concisely:\nassistant\nYou are focused on asking a question.",
+        "latency_s": 1.1060211658477783,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 41
+      },
+      {
+        "question": "What did I glance at?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: What did I glance at?\nAnswer concisely:\nassistant\nI'm sorry, but I don't have enough information to answer your question. Could you please provide more context or clarify your question?",
+        "latency_s": 3.3568625450134277,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 60
+      },
+      {
+        "question": "How many items are on the table?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: How many items are on the table?\nAnswer concisely:\nassistant\n2",
+        "latency_s": 0.28061509132385254,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 36
+      },
+      {
+        "question": "How many people are in the room?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: How many people are in the room?\nAnswer concisely:\nassistant\n2",
+        "latency_s": 0.28171348571777344,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 36
+      },
+      {
+        "question": "How many steps did I climb?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: How many steps did I climb?\nAnswer concisely:\nassistant\n1",
+        "latency_s": 0.2765212059020996,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 35
+      },
+      {
+        "question": "How many objects did I touch?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: How many objects did I touch?\nAnswer concisely:\nassistant\nI don't know how many objects you touched.",
+        "latency_s": 1.347489833831787,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 44
+      },
+      {
+        "question": "What color is the object I'm holding?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: What color is the object I'm holding?\nAnswer concisely:\nassistant\nred",
+        "latency_s": 0.2701222896575928,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 37
+      },
+      {
+        "question": "What size is the cup?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: What size is the cup?\nAnswer concisely:\nassistant\nsmall",
+        "latency_s": 0.2671229839324951,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 34
+      },
+      {
+        "question": "What material is this made of?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: What material is this made of?\nAnswer concisely:\nassistant\nwood",
+        "latency_s": 0.26867151260375977,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 35
+      },
+      {
+        "question": "What shape is this object?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: What shape is this object?\nAnswer concisely:\nassistant\nsquare",
+        "latency_s": 0.26700448989868164,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 34
+      },
+      {
+        "question": "When did I enter this room?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: When did I enter this room?\nAnswer concisely:\nassistant\nI don't know when you entered the room.",
+        "latency_s": 1.3318681716918945,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 44
+      },
+      {
+        "question": "How long have I been here?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: How long have I been here?\nAnswer concisely:\nassistant\nI don't know how long you have been here.",
+        "latency_s": 1.475452184677124,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 45
+      },
+      {
+        "question": "What time did I start this task?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: What time did I start this task?\nAnswer concisely:\nassistant\n1:30 PM",
+        "latency_s": 0.7435243129730225,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 40
+      },
+      {
+        "question": "How long ago did I see that object?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: How long ago did I see that object?\nAnswer concisely:\nassistant\nI don't know.",
+        "latency_s": 0.7626240253448486,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 41
+      },
+      {
+        "question": "What type of environment am I in?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: What type of environment am I in?\nAnswer concisely:\nassistant\nI don't know what type of environment you are in.",
+        "latency_s": 1.5881285667419434,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 47
+      },
+      {
+        "question": "What is the lighting condition?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: What is the lighting condition?\nAnswer concisely:\nassistant\nDark.",
+        "latency_s": 0.3901028633117676,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 35
+      },
+      {
+        "question": "What is the temperature like?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: What is the temperature like?\nAnswer concisely:\nassistant\nwarm",
+        "latency_s": 0.2708725929260254,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 34
+      },
+      {
+        "question": "What sounds can I hear?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: What sounds can I hear?\nAnswer concisely:\nassistant\nI'm sorry, I cannot answer this question as it depends on the environment you are in.",
+        "latency_s": 2.3979713916778564,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 52
+      },
+      {
+        "question": "What object did I just pick up?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: What object did I just pick up?\nAnswer concisely:\nassistant\nI don't know what object you just picked up.",
+        "latency_s": 1.4757905006408691,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 46
+      },
+      {
+        "question": "What am I holding in my right hand?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: What am I holding in my right hand?\nAnswer concisely:\nassistant\npen",
+        "latency_s": 0.270413875579834,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 37
+      },
+      {
+        "question": "What tool am I currently using?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: What tool am I currently using?\nAnswer concisely:\nassistant\nI am currently using a text-based AI language model.",
+        "latency_s": 1.4398243427276611,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 45
+      },
+      {
+        "question": "What item did I place on the table?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: What item did I place on the table?\nAnswer concisely:\nassistant\nI'm sorry, but I cannot answer your question as you have not provided any information about what item you placed on the table. Please provide more details so I can assist you better.",
+        "latency_s": 4.5265936851501465,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 73
+      },
+      {
+        "question": "What object is closest to my hand?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: What object is closest to my hand?\nAnswer concisely:\nassistant\npen",
+        "latency_s": 0.2737424373626709,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 36
+      },
+      {
+        "question": "Where did I put the cup?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: Where did I put the cup?\nAnswer concisely:\nassistant\non table",
+        "latency_s": 0.38777923583984375,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 36
+      },
+      {
+        "question": "Where am I looking at?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: Where am I looking at?\nAnswer concisely:\nassistant\nI am not sure where you are looking at.",
+        "latency_s": 1.3264141082763672,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 43
+      },
+      {
+        "question": "What direction am I facing?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: What direction am I facing?\nAnswer concisely:\nassistant\nI don't know what direction you are facing.",
+        "latency_s": 1.3557424545288086,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 43
+      },
+      {
+        "question": "Where is the nearest door?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: Where is the nearest door?\nAnswer concisely:\nassistant\nI don't know.",
+        "latency_s": 0.7557215690612793,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 38
+      },
+      {
+        "question": "What room am I in?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: What room am I in?\nAnswer concisely:\nassistant\nliving room",
+        "latency_s": 0.3854827880859375,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 35
+      },
+      {
+        "question": "What action am I performing?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: What action am I performing?\nAnswer concisely:\nassistant\nI am not performing any action.",
+        "latency_s": 0.9772911071777344,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 40
+      },
+      {
+        "question": "What task am I currently doing?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: What task am I currently doing?\nAnswer concisely:\nassistant\nYou are currently asking a question.",
+        "latency_s": 0.9800417423248291,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 41
+      },
+      {
+        "question": "What did I just finish doing?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: What did I just finish doing?\nAnswer concisely:\nassistant\nYou just finished asking a question.",
+        "latency_s": 0.9797322750091553,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 41
+      },
+      {
+        "question": "What am I about to do?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: What am I about to do?\nAnswer concisely:\nassistant\nI'm sorry, but I cannot answer your question as you have not provided any context or information about what you are about to do. Please provide more details so I can assist you better.",
+        "latency_s": 4.666527032852173,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 72
+      },
+      {
+        "question": "How many steps have I taken?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: How many steps have I taken?\nAnswer concisely:\nassistant\nI don't know.",
+        "latency_s": 0.7570745944976807,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 39
+      }
+    ],
+    "model_info": {
+      "total_params": 8291375616,
+      "size_gb": 33.165502464,
+      "vram_gb": 13.814073344
+    },
+    "summary": {
+      "num_samples": 50,
+      "avg_latency_s": 1.296442003250122,
+      "total_time_s": 64.8221001625061,
+      "avg_tokens": 43.26,
+      "throughput_samples_per_sec": 0.7713418706683715,
+      "throughput_tokens_per_sec": 33.368249325113744,
+      "avg_vram_gb": 13.895117219840001
+    }
+  },
+  "student": {
+    "model_name": "Qwen2-VL-2B (Distilled Student)",
+    "timestamp": "2025-12-08T19:39:35.237936",
+    "samples": [
+      {
+        "question": "What object did I just pick up?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: What object did I just pick up?\nAnswer concisely:\nassistant\nI can't see the object.",
+        "latency_s": 0.3281562328338623,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 42
+      },
+      {
+        "question": "What am I holding in my right hand?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: What am I holding in my right hand?\nAnswer concisely:\nassistant\npen",
+        "latency_s": 0.11580443382263184,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 37
+      },
+      {
+        "question": "What tool am I currently using?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: What tool am I currently using?\nAnswer concisely:\nassistant\nI am using a helpful assistant.",
+        "latency_s": 0.2842838764190674,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 41
+      },
+      {
+        "question": "What item did I place on the table?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: What item did I place on the table?\nAnswer concisely:\nassistant\nbook",
+        "latency_s": 0.11565995216369629,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 37
+      },
+      {
+        "question": "What object is closest to my hand?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: What object is closest to my hand?\nAnswer concisely:\nassistant\npen",
+        "latency_s": 0.11582589149475098,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 36
+      },
+      {
+        "question": "Where did I put the cup?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: Where did I put the cup?\nAnswer concisely:\nassistant\nI put the cup on the table.",
+        "latency_s": 0.3115534782409668,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 42
+      },
+      {
+        "question": "Where am I looking at?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: Where am I looking at?\nAnswer concisely:\nassistant\nI am looking at the sky.",
+        "latency_s": 0.2845573425292969,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 40
+      },
+      {
+        "question": "What direction am I facing?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: What direction am I facing?\nAnswer concisely:\nassistant\nI am facing west.",
+        "latency_s": 0.22800135612487793,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 38
+      },
+      {
+        "question": "Where is the nearest door?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: Where is the nearest door?\nAnswer concisely:\nassistant\nTo the left",
+        "latency_s": 0.17142057418823242,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 36
+      },
+      {
+        "question": "What room am I in?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: What room am I in?\nAnswer concisely:\nassistant\nI am in the living room.",
+        "latency_s": 0.2837178707122803,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 40
+      },
+      {
+        "question": "What action am I performing?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: What action am I performing?\nAnswer concisely:\nassistant\nType text",
+        "latency_s": 0.14475703239440918,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 35
+      },
+      {
+        "question": "What task am I currently doing?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: What task am I currently doing?\nAnswer concisely:\nassistant\nI am currently working on a task.",
+        "latency_s": 0.31975483894348145,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 42
+      },
+      {
+        "question": "What did I just finish doing?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: What did I just finish doing?\nAnswer concisely:\nassistant\nI just finished eating.",
+        "latency_s": 0.22855925559997559,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 39
+      },
+      {
+        "question": "What am I about to do?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: What am I about to do?\nAnswer concisely:\nassistant\nI am about to ask a question.",
+        "latency_s": 0.31646013259887695,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 42
+      },
+      {
+        "question": "How many steps have I taken?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: How many steps have I taken?\nAnswer concisely:\nassistant\n1000",
+        "latency_s": 0.19983768463134766,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 38
+      },
+      {
+        "question": "What was I looking at 5 seconds ago?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: What was I looking at 5 seconds ago?\nAnswer concisely:\nassistant\nI can't see you.",
+        "latency_s": 0.25596022605895996,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 43
+      },
+      {
+        "question": "What caught my attention?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: What caught my attention?\nAnswer concisely:\nassistant\nI am not sure.",
+        "latency_s": 0.22776222229003906,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 37
+      },
+      {
+        "question": "What am I focused on?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: What am I focused on?\nAnswer concisely:\nassistant\nI am focused on learning.",
+        "latency_s": 0.25531435012817383,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 39
+      },
+      {
+        "question": "What did I glance at?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: What did I glance at?\nAnswer concisely:\nassistant\nI glanced at the sky.",
+        "latency_s": 0.2556345462799072,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 39
+      },
+      {
+        "question": "How many items are on the table?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: How many items are on the table?\nAnswer concisely:\nassistant\n2",
+        "latency_s": 0.11542987823486328,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 36
+      },
+      {
+        "question": "How many people are in the room?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: How many people are in the room?\nAnswer concisely:\nassistant\n2",
+        "latency_s": 0.11513876914978027,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 36
+      },
+      {
+        "question": "How many steps did I climb?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: How many steps did I climb?\nAnswer concisely:\nassistant\nI can't tell.",
+        "latency_s": 0.2259654998779297,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 39
+      },
+      {
+        "question": "How many objects did I touch?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: How many objects did I touch?\nAnswer concisely:\nassistant\nI can't tell.",
+        "latency_s": 0.22636008262634277,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 39
+      },
+      {
+        "question": "What color is the object I'm holding?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: What color is the object I'm holding?\nAnswer concisely:\nassistant\nred",
+        "latency_s": 0.11533951759338379,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 37
+      },
+      {
+        "question": "What size is the cup?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: What size is the cup?\nAnswer concisely:\nassistant\nsmall",
+        "latency_s": 0.11523747444152832,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 34
+      },
+      {
+        "question": "What material is this made of?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: What material is this made of?\nAnswer concisely:\nassistant\nplastic",
+        "latency_s": 0.14373230934143066,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 36
+      },
+      {
+        "question": "What shape is this object?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: What shape is this object?\nAnswer concisely:\nassistant\nsquare",
+        "latency_s": 0.11586642265319824,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 34
+      },
+      {
+        "question": "When did I enter this room?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: When did I enter this room?\nAnswer concisely:\nassistant\nI entered this room on 2019-01-01.",
+        "latency_s": 0.5671195983886719,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 51
+      },
+      {
+        "question": "How long have I been here?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: How long have I been here?\nAnswer concisely:\nassistant\nI have been here for 2 years.",
+        "latency_s": 0.3402366638183594,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 43
+      },
+      {
+        "question": "What time did I start this task?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: What time did I start this task?\nAnswer concisely:\nassistant\n1:00",
+        "latency_s": 0.199662446975708,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 39
+      },
+      {
+        "question": "How long ago did I see that object?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: How long ago did I see that object?\nAnswer concisely:\nassistant\nI can't see it.",
+        "latency_s": 0.2563469409942627,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 42
+      },
+      {
+        "question": "What type of environment am I in?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: What type of environment am I in?\nAnswer concisely:\nassistant\nI am in a room.",
+        "latency_s": 0.25533080101013184,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 41
+      },
+      {
+        "question": "What is the lighting condition?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: What is the lighting condition?\nAnswer concisely:\nassistant\nDark",
+        "latency_s": 0.11567831039428711,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 34
+      },
+      {
+        "question": "What is the temperature like?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: What is the temperature like?\nAnswer concisely:\nassistant\ncold",
+        "latency_s": 0.11590337753295898,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 34
+      },
+      {
+        "question": "What sounds can I hear?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: What sounds can I hear?\nAnswer concisely:\nassistant\nI can hear the sound of the water.",
+        "latency_s": 0.3412606716156006,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 42
+      },
+      {
+        "question": "What object did I just pick up?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: What object did I just pick up?\nAnswer concisely:\nassistant\nI can't see the object.",
+        "latency_s": 0.2841815948486328,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 42
+      },
+      {
+        "question": "What am I holding in my right hand?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: What am I holding in my right hand?\nAnswer concisely:\nassistant\npen",
+        "latency_s": 0.11553740501403809,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 37
+      },
+      {
+        "question": "What tool am I currently using?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: What tool am I currently using?\nAnswer concisely:\nassistant\nI am using a helpful assistant.",
+        "latency_s": 0.28399014472961426,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 41
+      },
+      {
+        "question": "What item did I place on the table?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: What item did I place on the table?\nAnswer concisely:\nassistant\nbook",
+        "latency_s": 0.11552000045776367,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 37
+      },
+      {
+        "question": "What object is closest to my hand?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: What object is closest to my hand?\nAnswer concisely:\nassistant\npen",
+        "latency_s": 0.11573123931884766,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 36
+      },
+      {
+        "question": "Where did I put the cup?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: Where did I put the cup?\nAnswer concisely:\nassistant\nI put the cup on the table.",
+        "latency_s": 0.31494140625,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 42
+      },
+      {
+        "question": "Where am I looking at?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: Where am I looking at?\nAnswer concisely:\nassistant\nI am looking at the sky.",
+        "latency_s": 0.2843647003173828,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 40
+      },
+      {
+        "question": "What direction am I facing?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: What direction am I facing?\nAnswer concisely:\nassistant\nI am facing west.",
+        "latency_s": 0.22718524932861328,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 38
+      },
+      {
+        "question": "Where is the nearest door?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: Where is the nearest door?\nAnswer concisely:\nassistant\nTo the left",
+        "latency_s": 0.17165184020996094,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 36
+      },
+      {
+        "question": "What room am I in?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: What room am I in?\nAnswer concisely:\nassistant\nI am in the living room.",
+        "latency_s": 0.28363704681396484,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 40
+      },
+      {
+        "question": "What action am I performing?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: What action am I performing?\nAnswer concisely:\nassistant\nType text",
+        "latency_s": 0.14305758476257324,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 35
+      },
+      {
+        "question": "What task am I currently doing?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: What task am I currently doing?\nAnswer concisely:\nassistant\nI am currently working on a task.",
+        "latency_s": 0.3081226348876953,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 42
+      },
+      {
+        "question": "What did I just finish doing?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: What did I just finish doing?\nAnswer concisely:\nassistant\nI just finished eating.",
+        "latency_s": 0.2251114845275879,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 39
+      },
+      {
+        "question": "What am I about to do?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: What am I about to do?\nAnswer concisely:\nassistant\nI am about to ask a question.",
+        "latency_s": 0.30951952934265137,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 42
+      },
+      {
+        "question": "How many steps have I taken?",
+        "answer": "system\nYou are a helpful assistant.\nuser\nQuestion: How many steps have I taken?\nAnswer concisely:\nassistant\n1000",
+        "latency_s": 0.19956064224243164,
+        "peak_vram_gb": 13.895332352,
+        "num_tokens": 38
+      }
+    ],
+    "model_info": {
+      "total_params": 2208985600,
+      "size_gb": 8.8359424,
+      "vram_gb": 4.427685888
+    },
+    "summary": {
+      "num_samples": 50,
+      "avg_latency_s": 0.2237948513031006,
+      "total_time_s": 11.18974256515503,
+      "avg_tokens": 38.9,
+      "throughput_samples_per_sec": 4.468378044343978,
+      "throughput_tokens_per_sec": 173.81990592498076,
+      "avg_vram_gb": 13.895332352
+    }
+  },
+  "comparison": {
+    "model_size": {
+      "teacher_params_b": 8.291375616,
+      "student_params_b": 2.2089856,
+      "compression_ratio": 3.7534765351118633,
+      "size_reduction_pct": 73.35803246282457
+    },
+    "memory": {
+      "teacher_vram_gb": 13.814073344,
+      "student_vram_gb": 4.427685888,
+      "vram_reduction_gb": 9.386387456000001,
+      "vram_reduction_pct": 67.94800651667946
+    },
+    "performance": {
+      "teacher_latency_s": 1.296442003250122,
+      "student_latency_s": 0.2237948513031006,
+      "speedup": 5.79299298308817,
+      "teacher_throughput": 0.7713418706683715,
+      "student_throughput": 4.468378044343978,
+      "throughput_improvement": 5.792992983088169
+    }
+  }
+}

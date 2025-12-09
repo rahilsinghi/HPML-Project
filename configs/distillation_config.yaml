@@ -1,0 +1,59 @@
+# FirstSight: Knowledge Distillation Configuration
+# Teacher: EgoGPT-7b-EgoIT → Student: Qwen2-VL-2B-Instruct
+
+teacher:
+  model_name: "EgoGPT/EgoGPT-7b-EgoIT"
+  load_in_8bit: true  # Use INT8 quantization to save memory
+  device_map: "auto"
+  torch_dtype: "bfloat16"
+
+student:
+  model_name: "Qwen/Qwen2-VL-2B-Instruct"
+  torch_dtype: "bfloat16"  # BF16 for training stability
+  device_map: "auto"
+  gradient_checkpointing: true
+
+training:
+  # Training hyperparameters
+  epochs: 3
+  batch_size: 2  # Small batch size for memory efficiency
+  gradient_accumulation_steps: 8  # Effective batch size = 16
+  learning_rate: 1.0e-4
+  warmup_steps: 50
+  
+  # Distillation parameters
+  temperature: 3.0  # Temperature for softening distributions
+  alpha_logit: 0.7  # Weight for distillation loss
+  beta_feature: 0.3  # Weight for hard label loss (1 - alpha)
+  
+  # Optimization
+  weight_decay: 0.01
+  max_grad_norm: 1.0
+  
+  # Mixed precision
+  use_amp: true  # Automatic mixed precision
+
+data:
+  # Data configuration
+  train_samples: 400
+  val_samples: 100
+  num_workers: 4
+  data_path: null  # Set to path if using custom data, else uses synthetic
+
+hpc:
+  # HPC-specific settings
+  gpus: 1
+  mem_gb: 80
+  time_hours: 12
+  
+logging:
+  # Logging configuration
+  log_interval: 10  # Log every N gradient accumulation steps
+  save_checkpoint_epochs: 1  # Save checkpoint every N epochs
+  
+output:
+  # Output paths
+  checkpoint_dir: "experiments/distillation"
+  best_model_name: "best_student_model"
+  final_model_name: "final_student_model"
+
