@@ -1,0 +1,62 @@
+# FirstSight: Knowledge Distillation Configuration - PRODUCTION RUN
+# Teacher: Qwen2-VL-7B-Instruct → Student: Qwen2-VL-2B-Instruct
+# Scaled dataset for realistic evaluation
+
+teacher:
+  model_name: "Qwen/Qwen2-VL-7B-Instruct"
+  load_in_8bit: true  # Use INT8 quantization to save memory
+  device_map: "auto"
+  torch_dtype: "bfloat16"
+
+student:
+  model_name: "Qwen/Qwen2-VL-2B-Instruct"
+  torch_dtype: "bfloat16"  # BF16 for training stability
+  device_map: "auto"
+  gradient_checkpointing: true
+
+training:
+  # Training hyperparameters - SCALED UP
+  epochs: 10  # Increased from 3 to 10 for better convergence
+  batch_size: 2  # Small batch size for memory efficiency
+  gradient_accumulation_steps: 8  # Effective batch size = 16
+  learning_rate: 1.0e-4
+  warmup_steps: 200  # Increased warmup for larger dataset
+  
+  # Distillation parameters
+  temperature: 3.0  # Temperature for softening distributions
+  alpha_logit: 0.9  # Weight for distillation loss (increased back to 0.9)
+  beta_feature: 0.1  # Weight for hard label loss (1 - alpha)
+  
+  # Optimization
+  weight_decay: 0.01
+  max_grad_norm: 1.0
+  
+  # Mixed precision
+  use_amp: true  # Automatic mixed precision
+
+data:
+  # Data configuration - PRODUCTION SCALE
+  train_samples: 5000  # Realistic size for egocentric QA (was 400)
+  val_samples: 1000    # Proper validation set (was 100)
+  num_workers: 4
+  train_data_path: "data/egoqa_train_5k.json"  # Realistic synthetic EgoQA-style dataset
+  val_data_path: "data/egoqa_val_1k.json"
+
+hpc:
+  # HPC-specific settings
+  gpus: 1
+  mem_gb: 80
+  time_hours: 12
+  
+logging:
+  # Logging configuration
+  log_interval: 10  # Log every N gradient accumulation steps
+  save_checkpoint_epochs: 1  # Save checkpoint every N epochs
+  
+output:
+  # Output paths
+  checkpoint_dir: "experiments/distillation_production"
+  best_model_name: "best_student_model"
+  final_model_name: "final_student_model"
+
+
