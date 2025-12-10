@@ -6,6 +6,51 @@
 
 ---
 
+
+**This code is designed to run directly on the real Ego4D dataset located in `data/FirstSight-Dataset/`.**
+
+The training pipeline automatically detects and uses the real dataset:
+- **Dataset JSON**: `data/FirstSight-Dataset/datasets/Ego4D/Ego4D.json` (1,412 samples)
+- **Video Files**: `data/FirstSight-Dataset/Ego4d/` (124 video files)
+- **Video Clips**: `data/FirstSight-Dataset/Ego4d_clip/` (409 video files)
+- **Audio Files**: Available in `Ego4d_audio/` and `Ego4d_clip_audio/` folders
+
+The code supports data loading from Hugginface:
+Loads from `sunidhitandel/FirstSight-Dataset` 
+
+
+## 📁 Dataset Structure
+
+The dataset follows the Ego4D format with multimodal inputs:
+
+```json
+{
+  "id": "video_id",
+  "video": "path/to/video.mp4",
+  "audio": "path/to/audio.mp3",  // Optional
+  "conversations": [
+    {"from": "human", "value": "<speech>\n<image>\nQuestion"},
+    {"from": "gpt", "value": "Answer"}
+  ]
+}
+```
+
+**Key Features**:
+- ✅ **1,412 real samples** with video, audio, and conversation pairs
+- ✅ **Automatic path resolution** - handles both relative and absolute paths
+- ✅ **Video frame sampling** - extracts 8 frames at 1 FPS per video
+- ✅ **Multimodal processing** - supports video + audio + text inputs
+- ✅ **Flexible loading** - works with HuggingFace or local files
+
+The training script (`src/training/train.py`) automatically:
+- Loads the dataset from the configured path
+- Resolves video file paths relative to `video_folder`
+- Handles missing videos gracefully (returns dummy frames)
+- Processes audio files if available
+- Formats conversations for LLaVA-OneVision input
+
+---
+
 ## 🤗 Pre-trained Model Available
 
 **Our distilled Qwen2-VL-2B model is now available on Hugging Face!**
@@ -35,10 +80,11 @@ processor = AutoProcessor.from_pretrained("rahilsinghi/firstsight-qwen2-vl-2b-di
 ## 📋 Project Overview
 
 FirstSight builds an end-to-end pipeline for **efficient egocentric question answering** using Vision-Language Models (VLMs). The project focuses on:
-
-1. **Knowledge Distillation**: Compress large egocentric VLMs (EgoGPT-7b) into efficient student models (Qwen2-VL-2B)
-2. **Memory Optimization**: INT8 quantization and parameter-efficient training (LoRA)
-3. **Edge Deployment**: Deploy compressed models on resource-constrained devices (AR glasses, mobile GPUs)
+1. **Baseline Creation**: Establish performance baselines for egocentric VLM evaluation
+2. **Model Fine-tuning**: Fine-tune LLaVA-OneVision on Ego4D dataset using parameter-efficient methods (LoRA/QLoRA)
+3.**Knowledge Distillation**: Compress large egocentric VLMs (EgoGPT-7b) into efficient student models (Qwen2-VL-2B)
+4 **Memory Optimization**: INT8 quantization and parameter-efficient training (LoRA)
+5 **Edge Deployment**: Deploy compressed models on resource-constrained devices (AR glasses, mobile GPUs)
 
 ### Target Metrics
 
@@ -66,11 +112,16 @@ firstsight/
 │   └── utils/                    # Shared utilities
 │       └── generate_report.py    # Report generation
 ├── configs/                      # Configuration files
+│   ├── training_config.yaml      # LLaVA fine-tuning config (NEW)
+│   ├── deepspeed_zero3.json      # DeepSpeed ZeRO-3 config (NEW)
 │   └── distillation_config.yaml  # Distillation hyperparameters
 ├── scripts/                      # Executable scripts
 │   ├── hpc_setup.sh              # HPC environment setup
 │   ├── upload_to_hpc.sh          # Upload files to HPC
+│   ├── generate_dummy_dataset.py # Generate dummy Ego4D dataset
 │   └── slurm/                    # SLURM job configurations
+│       ├── run_training_baseline.slurm  # Baseline evaluation
+│       ├── run_training_qlora.slurm     # QLoRA fine-tuning
 │       ├── run_baseline.slurm
 │       ├── run_quantization.slurm
 │       └── run_distillation.slurm
@@ -255,6 +306,80 @@ training:
 
 ---
 
+## 🎯 LLaVA-OneVision Fine-Tuning
+
+### Quick Start
+
+**Load Dataset from HuggingFace:**
+```python
+from datasets import load_dataset
+
+# Load Ego4D dataset from HuggingFace
+ds = load_dataset("sunidhitandel/FirstSight-Dataset", "Ego4D")
+```
+
+**Configure Training:**
+Edit `configs/training_config.yaml`:
+```yaml
+data:
+  hf_dataset_name: "sunidhitandel/FirstSight-Dataset"
+  hf_dataset_config: "Ego4D"
+  video_folder: "data/FirstSight-Dataset/Ego4d"
+```
+
+**Run Training:**
+
+Baseline (evaluation only):
+```bash
+sbatch scripts/slurm/run_training_baseline.slurm
+```
+
+QLoRA fine-tuning:
+```bash
+sbatch scripts/slurm/run_training_qlora.slurm
+```
+
+### Training Components
+
+**Loss Function:**
+- **Token-level cross-entropy** (causal LM loss)
+- Loss computed only on answer tokens (prompt tokens masked)
+- Validation loss computed on separate validation set
+
+**Optimizer:**
+- **AdamW optimizer** (`adamw_torch`)
+- Learning rate: 2.0e-4 (configurable)
+- Weight decay: 0.01
+- Gradient clipping: max_grad_norm = 1.0
+
+**Learning Rate Schedule:**
+- **Cosine scheduler** with warmup
+- Warmup steps: 100
+- 10 epochs for QLoRA fine-tuning
+
+**Distributed Training:**
+- **DeepSpeed ZeRO-3** 
+- Parameter sharding across 4× A100 GPUs
+- CPU offloading for optimizer states and parameters
+- Gradient accumulation: 4 steps (effective batch size = 8)
+- `deepspeed --num_gpus=4 src/training/train.py ...`
+
+**Model Variants:**
+- **M0 Baseline**: LLaVA-OneVision evaluation only (no fine-tuning)
+- **M1 LoRA**: LoRA adapters without quantization (r=16, alpha=32)
+- **M1 QLoRA**: NF4 quantization + LoRA adapters (r=16, alpha=32)
+
+**Profiling:**
+- CUDA event-based timing (forward/backward/optimizer)
+- Memory tracking (peak GPU memory)
+- Throughput metrics (tokens/sec, samples/sec)
+- Step time statistics (mean, median, p95)
+- Metrics saved as JSON files
+
+See `docs/TRAINING_GUIDE.md` for detailed documentation.
+
+---
+
 ## 🛠️ Development
 
 ### Running Locally (Testing)
@@ -300,7 +425,14 @@ python -m src.distillation.distill_vlm configs/distillation_config.yaml
 4. **Modality-Balanced Quantization**:
    - Liu et al., "Modality Balanced Quantization for Large Vision-Language Models" (2024) - [arXiv:2412.19509](https://arxiv.org/abs/2412.19509)
 
-5. **Parameter-Efficient Fine-Tuning**:
+5. **LLaVA-OneVision Fine-Tuning** (NEW):
+   - Baseline evaluation (M0): LLaVA-OneVision with no fine-tuning
+   - QLoRA fine-tuning (M1): NF4 quantized model + LoRA adapters for 10 epochs
+   - DeepSpeed ZeRO-3 distributed training on 4× A100 GPUs
+   - Lightweight profiling with CUDA events
+   - Ego4D dataset support (HuggingFace or local JSON)
+
+6. **Parameter-Efficient Fine-Tuning**:
    - Hu et al., "LoRA: Low-Rank Adaptation" (2021) - [arXiv:2106.09685](https://arxiv.org/abs/2106.09685)
 
 6. **Quantization**:

@@ -1,0 +1,61 @@
+# Training configuration for LLaVA-OneVision fine-tuning on Ego4D
+# QLoRA configuration (with 4-bit quantization)
+# For LoRA without quantization, use training_config_lora.yaml
+
+# Model configuration
+model:
+  model_name: "lmms-lab/LLaVA-OneVision-1.5-8B-Instruct"
+  torch_dtype: "bfloat16"
+  device_map: "auto"
+
+# LoRA configuration (for QLoRA mode)
+lora:
+  lora_r: 16
+  lora_alpha: 32
+  lora_dropout: 0.05
+  target_modules: null  # Auto-detect if null
+
+# Training hyperparameters
+training:
+  epochs: 10  # For QLoRA; baseline uses 1 epoch (evaluation only)
+  batch_size: 2  # Per device batch size
+  gradient_accumulation_steps: 4  # Effective batch size = 8
+  learning_rate: 2.0e-4
+  warmup_steps: 100
+  weight_decay: 0.01
+  max_grad_norm: 1.0
+  log_interval: 10
+  save_steps: 500
+  eval_steps: 500
+  # Optimizer and loss settings
+  optimizer: "adamw_torch"  # AdamW optimizer with PyTorch implementation
+  lr_scheduler: "cosine"  # Cosine learning rate scheduler
+  save_total_limit: 3  # Keep only last 3 checkpoints
+  load_best_model_at_end: true  # Load best model at end of training
+  metric_for_best_model: "loss"  # Use loss for model selection
+
+# Dataset configuration - Using REAL Ego4D data only
+data:
+  # Option 1: Load from HuggingFace
+  hf_dataset_name: "sunidhitandel/FirstSight-Dataset"  # HuggingFace dataset name
+  hf_dataset_config: "Ego4D"  # Dataset config/split name
+  # Option 2: Load from local JSON file (fallback if HuggingFace fails)
+  data_path: "data/FirstSight-Dataset/datasets/Ego4D/Ego4D.json"  # Real Ego4D data
+  video_ids_file: null  # Optional: path to .txt file with video IDs (one per line)
+  video_folder: "data/FirstSight-Dataset/Ego4d"  # Base folder for REAL video paths
+  audio_folder: null  # Base folder for audio paths (if separate)
+  max_frames: 8  # Maximum frames per video
+  fps: 1  # Frames per second to sample
+  num_workers: 4
+
+# Output configuration
+output:
+  output_dir: "results/training"  # Results saved to results folder
+  profiling_dir: "results/profiling"
+
+# Optimization flags
+use_flash_attn: false  # Set to true to enable FlashAttention
+
+# DeepSpeed configuration path
+deepspeed_config: "configs/deepspeed_zero3.json"
+
